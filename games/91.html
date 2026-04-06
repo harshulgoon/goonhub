@@ -346,6 +346,30 @@
     <div id="message-container">
       <div id="messages"></div>
     </div>
+
+    <script>
+// Define missing function to prevent crash
+window.isMultiplayer = function() {
+    return false; // Undertale is single-player
+};
+</script>
+
+<script>
+// Suppress GameMaker error alerts
+window.addEventListener('error', function(e) {
+    if (e.message && e.message.includes('isMultiplayer')) {
+        console.warn('Suppressed isMultiplayer error (tab switch bug)');
+        e.preventDefault();
+        return true;
+    }
+});
+
+// Define missing function
+window.isMultiplayer = function() {
+    return false;
+};
+</script>
+    
     <script>
       function mergeFiles(fileParts) {
         return new Promise((resolve, reject) => {
