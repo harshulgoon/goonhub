@@ -369,6 +369,22 @@ window.isMultiplayer = function() {
     return false;
 };
 </script>
+
+<script>
+// Prevent tab switch errors
+window.addEventListener('blur', function(e) {
+    e.stopImmediatePropagation();
+}, true);
+
+window.addEventListener('focus', function(e) {
+    e.stopImmediatePropagation();
+}, true);
+
+// Define missing function
+window.isMultiplayer = function() {
+    return false;
+};
+</script>
     
     <script>
       function mergeFiles(fileParts) {
